@@ -1,0 +1,247 @@
+[
+  uuid(68D08E3C-41C4-4CDF-A7C0-0C010CB0E931), 
+  version(1.0), 
+  helpstring("DvrFormProj1 Library"), 
+  control
+]
+library DvrFormProj1
+{
+
+  importlib("stdole2.tlb");
+  importlib("STDVCL40.DLL");
+
+  [
+    uuid(8B1896D6-05FF-42F2-A160-6FF774C29247), 
+    version(1.0), 
+    helpstring("Dispatch interface for DvrForm Control"), 
+    dual, 
+    oleautomation
+  ]
+   interface IDvrForm: IDispatch
+  {
+    [propget, id(0x00000001), hidden]
+    HRESULT _stdcall Visible([out, retval] VARIANT_BOOL * Value );
+    [propput, id(0x00000001), hidden]
+    HRESULT _stdcall Visible([in] VARIANT_BOOL Value );
+    [propget, id(0x00000002)]
+    HRESULT _stdcall AutoScroll([out, retval] VARIANT_BOOL * Value );
+    [propput, id(0x00000002)]
+    HRESULT _stdcall AutoScroll([in] VARIANT_BOOL Value );
+    [propget, id(0x00000003)]
+    HRESULT _stdcall AutoSize([out, retval] VARIANT_BOOL * Value );
+    [propput, id(0x00000003)]
+    HRESULT _stdcall AutoSize([in] VARIANT_BOOL Value );
+    [propget, id(0x00000004)]
+    HRESULT _stdcall AxBorderStyle([out, retval] TxActiveFormBorderStyle * Value );
+    [propput, id(0x00000004)]
+    HRESULT _stdcall AxBorderStyle([in] TxActiveFormBorderStyle Value );
+    [propget, id(0xFFFFFDFA)]
+    HRESULT _stdcall Caption([out, retval] BSTR * Value );
+    [propput, id(0xFFFFFDFA)]
+    HRESULT _stdcall Caption([in] BSTR Value );
+    [propget, id(0xFFFFFE0B)]
+    HRESULT _stdcall Color([out, retval] OLE_COLOR * Value );
+    [propput, id(0xFFFFFE0B)]
+    HRESULT _stdcall Color([in] OLE_COLOR Value );
+    [propget, id(0xFFFFFE00)]
+    HRESULT _stdcall Font([out, retval] IFontDisp ** Value );
+    [propput, id(0xFFFFFE00)]
+    HRESULT _stdcall Font([in] IFontDisp * Value );
+    [propputref, id(0xFFFFFE00)]
+    HRESULT _stdcall Font([in] IFontDisp ** Value );
+    [propget, id(0x00000005)]
+    HRESULT _stdcall KeyPreview([out, retval] VARIANT_BOOL * Value );
+    [propput, id(0x00000005)]
+    HRESULT _stdcall KeyPreview([in] VARIANT_BOOL Value );
+    [propget, id(0x00000006)]
+    HRESULT _stdcall PixelsPerInch([out, retval] long * Value );
+    [propput, id(0x00000006)]
+    HRESULT _stdcall PixelsPerInch([in] long Value );
+    [propget, id(0x00000007)]
+    HRESULT _stdcall PrintScale([out, retval] TxPrintScale * Value );
+    [propput, id(0x00000007)]
+    HRESULT _stdcall PrintScale([in] TxPrintScale Value );
+    [propget, id(0x00000008)]
+    HRESULT _stdcall Scaled([out, retval] VARIANT_BOOL * Value );
+    [propput, id(0x00000008)]
+    HRESULT _stdcall Scaled([in] VARIANT_BOOL Value );
+    [propget, id(0x00000009), hidden]
+    HRESULT _stdcall Active([out, retval] VARIANT_BOOL * Value );
+    [propget, id(0x0000000A), hidden]
+    HRESULT _stdcall DropTarget([out, retval] VARIANT_BOOL * Value );
+    [propput, id(0x0000000A), hidden]
+    HRESULT _stdcall DropTarget([in] VARIANT_BOOL Value );
+    [propget, id(0x0000000B), hidden]
+    HRESULT _stdcall HelpFile([out, retval] BSTR * Value );
+    [propput, id(0x0000000B), hidden]
+    HRESULT _stdcall HelpFile([in] BSTR Value );
+    [propget, id(0x0000000C), hidden]
+    HRESULT _stdcall DoubleBuffered([out, retval] VARIANT_BOOL * Value );
+    [propput, id(0x0000000C), hidden]
+    HRESULT _stdcall DoubleBuffered([in] VARIANT_BOOL Value );
+    [propget, id(0x0000000D), hidden]
+    HRESULT _stdcall VisibleDockClientCount([out, retval] long * Value );
+    [propget, id(0xFFFFFDFE), hidden]
+    HRESULT _stdcall Enabled([out, retval] VARIANT_BOOL * Value );
+    [propput, id(0xFFFFFDFE), hidden]
+    HRESULT _stdcall Enabled([in] VARIANT_BOOL Value );
+    [propget, id(0x0000000E)]
+    HRESULT _stdcall Cursor([out, retval] short * Value );
+    [propput, id(0x0000000E)]
+    HRESULT _stdcall Cursor([in] short Value );
+    [id(0x0000000F)]
+    HRESULT _stdcall SetCamera_ColorValue([in] long CameraNo, [in] long index, [in] long Value );
+    [id(0x00000010)]
+    HRESULT _stdcall PassWord([in, out] int * PassFlag );
+    [id(0x00000011)]
+    HRESULT _stdcall JJRecFinish( void );
+    [id(0x00000012)]
+    HRESULT _stdcall DisplayRecType([in] long CameraNo, [in] long Value );
+    [id(0x00000014)]
+    HRESULT _stdcall AboutInfo([in] BSTR name, [in] BSTR ProductName, [in] BSTR Version, [in] BSTR Comments, [in] BSTR timestr );
+    [id(0x00000016)]
+    HRESULT _stdcall YTRemote_WriteAddr([in] long Addr );
+    [id(0x00000017)]
+    HRESULT _stdcall YTRemote_ReadAddr([in, out] long * Addr );
+    [id(0x00000018)]
+    HRESULT _stdcall YTRemote_Command([in] long Command, [in] long BeginorEnd, [in] long Mode );
+    [id(0x00000019)]
+    HRESULT _stdcall Set_CurCamera([in] long CameraNo );
+    [id(0x0000001B)]
+    HRESULT _stdcall sys_init( void );
+    [id(0x0000001C)]
+    HRESULT _stdcall WriteLog([in] long Bj, [in] BSTR LogRec );
+    [id(0x0000001D)]
+    HRESULT _stdcall UpdateParaset([in] long Revalue );
+    [id(0x00000013)]
+    HRESULT _stdcall DisplayAlarmType([in] long SensorNo, [in] long Mode );
+    [id(0x00000015)]
+    HRESULT _stdcall GetSetupPass([in, out] int * PassValue, [in, out] int * SetPara );
+    [id(0x0000001A)]
+    HRESULT _stdcall GetSearchPass([in, out] int * PassSearch, [in, out] int * PassBackup );
+    [id(0x0000001E)]
+    HRESULT _stdcall SetupCameraNum([in] long Num );
+    [id(0x0000001F)]
+    HRESULT _stdcall LockScreen( void );
+    [id(0x00000020)]
+    int _stdcall IsCompany( void );
+  };
+
+  [
+    uuid(5A95D19D-F023-47F8-A06B-49EA225E8E49), 
+    version(1.0), 
+    helpstring("Events interface for DvrForm Control")
+  ]
+   dispinterface IDvrFormEvents
+  {
+    properties:
+    methods:
+    [id(0x00000001)]
+    void OnActivate( void );
+    [id(0x00000002)]
+    void OnClick( void );
+    [id(0x00000003)]
+    void OnCreate( void );
+    [id(0x00000005)]
+    void OnDblClick( void );
+    [id(0x00000006)]
+    void OnDestroy( void );
+    [id(0x00000007)]
+    void OnDeactivate( void );
+    [id(0x0000000B)]
+    void OnKeyPress([in, out] short * Key );
+    [id(0x00000010)]
+    void OnPaint( void );
+    [id(0x00000009)]
+    void OnClose([in] long Mode );
+    [id(0x0000000A)]
+    void OnColorSet([in] long CameraNo, [in] long index, [in] long Value );
+    [id(0x00000004)]
+    void OnModeChange([in] long Mode );
+    [id(0x00000008)]
+    void OnJJRecStart( void );
+    [id(0x0000000C)]
+    void OnDefaultColor([in] long CameraNo );
+    [id(0x0000000D)]
+    void OnSelectCamera([in] long CameraNo );
+    [id(0x00000011)]
+    HRESULT OnAbout( void );
+    [id(0x00000012)]
+    HRESULT OnSetYDAlarm([in] long CameraNo );
+    [id(0x00000013)]
+    HRESULT OnLockScreen([in] long blLock );
+    [id(0x00000014)]
+    HRESULT OnGraphPicture( void );
+    [id(0x0000000F)]
+    HRESULT OnSearch( void );
+    [id(0x00000015)]
+    HRESULT OnSetup( void );
+    [id(0x0000000E)]
+    HRESULT OnFacetoWork([in] long ON_OFF );
+    [id(0x00000016)]
+    HRESULT OnLockPass([in] long para );
+    [id(0x00000017)]
+    void OnSensorBtn([in] long SensorNo );
+  };
+
+  [
+    uuid(49814CC1-DBA0-4FB4-9E07-25E11797BA17), 
+    version(1.0), 
+    helpstring("DvrForm Control"), 
+    licensed, 
+    control
+  ]
+  coclass DvrForm
+  {
+    [default] interface IDvrForm;
+    [default, source] dispinterface IDvrFormEvents;
+  };
+
+  [
+    uuid(26464EA6-038C-4980-BC05-00DA49D8003E), 
+    version(1.0)
+  ]
+  typedef enum tagTxActiveFormBorderStyle
+  {
+    [helpstring("afbNone")]
+    afbNone = 0, 
+    [helpstring("afbSingle")]
+    afbSingle = 1, 
+    [helpstring("afbSunken")]
+    afbSunken = 2, 
+    [helpstring("afbRaised")]
+    afbRaised = 3
+  } TxActiveFormBorderStyle;
+
+  [
+    uuid(AD8D127A-6901-4486-880B-232ADEA54F9B), 
+    version(1.0)
+  ]
+  typedef enum tagTxPrintScale
+  {
+    [helpstring("poNone")]
+    poNone = 0, 
+    [helpstring("poProportional")]
+    poProportional = 1, 
+    [helpstring("poPrintToFit")]
+    poPrintToFit = 2
+  } TxPrintScale;
+
+  [
+    uuid(6CB81803-672B-4BFF-90B8-293CEDB061C8), 
+    version(1.0)
+  ]
+  typedef enum tagTxMouseButton
+  {
+    [helpstring("mbLeft")]
+    mbLeft = 0, 
+    [helpstring("mbRight")]
+    mbRight = 1, 
+    [helpstring("mbMiddle")]
+    mbMiddle = 2
+  } TxMouseButton;
+
+  
+  typedef IFontDisp ** PPUserType1;
+
+}; 
