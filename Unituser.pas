@@ -98,7 +98,7 @@ begin
       UserPassFlag:=false;
       name:=EditName.Text;
       pass:=EditPass.Text;
-      for i:=0 to maxuser do    //change 15 to maxuser wei
+      for i:=0 to maxuser   do    //change 15 to maxuser wei
         if(UserPass[i].USERNAME <> '')and(UserPass[i].USERNAME = name) then
         begin
              if UserPass[i].PASSWORDS <> pass then

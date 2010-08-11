@@ -236,7 +236,7 @@ begin
       begin
          try
            FileSeek(Userfile,0,0);
-           for i:=0 to 15 do
+           for i:=0 to maxuser do   //change by weidong from 15 to maxuser
            begin
              revalue:=FileRead(Userfile,UserPass[i],sizeof(TUserInfo));
              if(revalue<>sizeof(TUserInfo)) then  break;
