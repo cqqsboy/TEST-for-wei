@@ -12,7 +12,7 @@ unit DvrFormProj1_TLB;
 // ************************************************************************ //
 
 // PASTLWTR : $Revision:   1.88  $
-// File generated on 2010-8-11 ÏÂÎç 03:31:58 from Type Library described below.
+// File generated on 2010-8-12 ÉÏÎç 10:38:53 from Type Library described below.
 
 // *************************************************************************//
 // NOTE:                                                                      
@@ -167,8 +167,6 @@ type
     procedure SetupCameraNum(Num: Integer); safecall;
     procedure LockScreen; safecall;
     procedure IsCompany(out flag: SYSINT); safecall;
-    procedure YTRemote_CallPreset(pos: Integer); safecall;
-    procedure YTRemote_SavePreset(pos: Integer); safecall;
     property Visible: WordBool read Get_Visible write Set_Visible;
     property AutoScroll: WordBool read Get_AutoScroll write Set_AutoScroll;
     property AutoSize: WordBool read Get_AutoSize write Set_AutoSize;
@@ -219,7 +217,7 @@ type
     procedure JJRecFinish; dispid 17;
     procedure DisplayRecType(CameraNo: Integer; Value: Integer); dispid 18;
     procedure AboutInfo(const name: WideString; const ProductName: WideString; 
-                        const Version: WideString; const Comments: WideString;
+                        const Version: WideString; const Comments: WideString; 
                         const timestr: WideString); dispid 20;
     procedure YTRemote_WriteAddr(Addr: Integer); dispid 22;
     procedure YTRemote_ReadAddr(var Addr: Integer); dispid 23;
@@ -234,8 +232,6 @@ type
     procedure SetupCameraNum(Num: Integer); dispid 30;
     procedure LockScreen; dispid 31;
     procedure IsCompany(out flag: SYSINT); dispid 32;
-    procedure YTRemote_CallPreset(pos: Integer); dispid 33;
-    procedure YTRemote_SavePreset(pos: Integer); dispid 34;
   end;
 
 // *********************************************************************//
@@ -343,8 +339,6 @@ type
     procedure SetupCameraNum(Num: Integer);
     procedure LockScreen;
     procedure IsCompany(out flag: SYSINT);
-    procedure YTRemote_CallPreset(pos: Integer);
-    procedure YTRemote_SavePreset(pos: Integer);
     property  ControlInterface: IDvrForm read GetControlInterface;
     property  DefaultInterface: IDvrForm read GetControlInterface;
     property Visible: WordBool index 1 read GetWordBoolProp write SetWordBoolProp;
@@ -543,16 +537,6 @@ end;
 procedure TDvrForm.IsCompany(out flag: SYSINT);
 begin
   DefaultInterface.IsCompany(flag);
-end;
-
-procedure TDvrForm.YTRemote_CallPreset(pos: Integer);
-begin
-  DefaultInterface.YTRemote_CallPreset(pos);
-end;
-
-procedure TDvrForm.YTRemote_SavePreset(pos: Integer);
-begin
-  DefaultInterface.YTRemote_SavePreset(pos);
 end;
 
 procedure Register;

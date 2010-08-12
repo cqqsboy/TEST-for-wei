@@ -286,7 +286,7 @@ Var
 begin
    ReadUserInfo;
    Flag:=False;
-   for i:=0 to 15 do
+   for i:=0 to maxuser do
    begin
       if UserPass[i].USERNAME <> '' then
       if UserPass[i].bManager = 0 then

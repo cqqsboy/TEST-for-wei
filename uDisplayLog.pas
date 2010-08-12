@@ -79,7 +79,7 @@ begin
  ComboBox2.Text:='';
  if BJ = 0 then
  begin
-    for i:=0 to 15 do
+    for i:=0 to maxuser do
       if(UserPass[i].USERNAME <> '') then
       ComboBox2.Items.Add(UserPass[i].USERNAME);
  end;

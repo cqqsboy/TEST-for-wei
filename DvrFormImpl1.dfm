@@ -19,7 +19,7 @@ object DvrForm: TDvrForm
     Left = 0
     Top = 0
     Width = 1024
-    Height = 749
+    Height = 742
     Align = alClient
     Picture.Data = {
       0A544A504547496D6167656E420100FFD8FFE000104A46494600010201006000

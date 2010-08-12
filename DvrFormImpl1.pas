@@ -205,7 +205,9 @@ type
     procedure soundbtnClick(Sender: TObject);
     procedure ImageresetClick(Sender: TObject);
     procedure Button2Click(Sender: TObject);
-
+    procedure MyExceptionHandler(
+      Sender : TObject; E : Exception );
+    { add by weidong to devug}
   private
     { Private declarations }
     FEvents: IDvrFormEvents;
@@ -295,8 +297,8 @@ type
     procedure LockScreen; safecall;
     procedure IsCompany(out flag: SYSINT); safecall;
     procedure SoundOn(open: Integer); safecall;
-    procedure YTRemote_CallPreset(pos: Integer); safecall;
-    procedure YTRemote_SavePreset(pos: Integer); safecall;
+    {procedure YTRemote_CallPreset(pos: Integer); safecall;
+    procedure YTRemote_SavePreset(pos: Integer); safecall;  }
   public
     { Public declarations }
     Function  CheckPass(Mode:Byte):boolean;
@@ -327,7 +329,24 @@ uses ComObj, ComServ, About1,UnitPara,Unituser,uDisplayLog,UnitJBLog;
 //{$define SDSG}                 this ver is for caixun
 
 
+procedure Tdvrform.MyExceptionHandler(
+  Sender : TObject; E : Exception );
+var
+  wRetVal : Word;
+begin             // make null error and delete access error
+  {wRetVal := MessageDlg(
+    {
+     E.Message contains the
+     actual error message
+     we'll customize it a bit...
+    }
+  {  'ERROR: ' + E.Message,
 
+    mtError,
+    mbAbortRetryIgnore,
+    0
+  );}
+end;
 procedure TDvrForm.DefinePropertyPages(DefinePropertyPage: TDefinePropertyPage);
 begin
   { Define property pages here.  Property pages are defined by calling
@@ -1586,7 +1605,7 @@ begin
    if Fileexists(ApplicationPath+'dvrflag.bmp') then
           begin
           ImagLogo.Picture.LoadFromFile(ApplicationPath+'dvrflag.bmp');
-          end
+          end;
 
   {$endif}
 
@@ -1594,6 +1613,8 @@ begin
 
    // now check sound preview status for disp staus
 
+   Application.OnException :=
+    MyExceptionHandler;
 
 
 
@@ -1643,24 +1664,24 @@ begin
   end;
 end;
 
-  //云台远程Read Addr
+//云台远程Read Addr
 procedure TDvrForm.YTRemote_ReadAddr(var Addr: Integer);
 begin
   if not YT_OpenFlag then exit;
   YT_DLL.YTReadAddr(Addr);
 end;
-// 云台远程预置位
+{// 云台远程预置位
 procedure TDvrForm.YTRemote_Savepreset( pos: Integer);
 begin
   if not YT_OpenFlag then exit;
   YT_DLL.Savepreset(pos);
-end;
-  // 云台远程预置位
+end;        }
+{  // 云台远程预置位
 procedure TDvrForm.YTRemote_Callpreset( pos: Integer);
 begin
   if not YT_OpenFlag then exit;
   YT_DLL.Callpreset(pos);
-end;
+end;         }
 
 
 procedure TDvrForm.YTBtnUpdate(flag:boolean);
