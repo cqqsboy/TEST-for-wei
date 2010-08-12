@@ -9,7 +9,8 @@ uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,Shellapi,// Unitverion,
   ActiveX, AxCtrls, DvrFormProj1_TLB, StdVcl, jpeg, ExtCtrls, fcLabel,FileCtrl,YT_COMLib_TLB,
   fcButton, fcImgBtn, StdCtrls, ComCtrls,inifiles;
-
+const 
+ maxuser=64;
 type
   TDvrForm = class(TActiveForm, IDvrForm)
     ImageMain: TImage;
@@ -1117,7 +1118,7 @@ begin
      if FEvents<>nil then FEvents.OnLockScreen(1);//加锁
       //当前用户的查看权限为所有用户相与
       SearchView:=$FFFF;
-      for i:=0 to 15 do
+      for i:=0 to maxuser do
          if UserPass[i].USERNAME <> '' then
          begin
             SearchView:=UserPass[i].wSearchView and SearchView;
@@ -1469,7 +1470,7 @@ begin
       //当前用户的查看权限为所有用户相与
         Cur_User.wSearchView:=$FFFF;
         Cur_User.wBackup:=$FFFF;
-        for i:=0 to 15 do
+        for i:=0 to maxuser do
            if UserPass[i].USERNAME <> '' then
            begin
               Cur_User.wSearchView:=UserPass[i].wSearchView and Cur_User.wSearchView;
@@ -2728,7 +2729,7 @@ begin
      if FEvents<>nil then FEvents.OnLockScreen(1);//加锁
       //当前用户的查看权限为所有用户相与
       SearchView:=$FFFF;
-      for i:=0 to 15 do
+      for i:=0 to maxuser do
          if UserPass[i].USERNAME <> '' then
          begin
             SearchView:=UserPass[i].wSearchView and SearchView;

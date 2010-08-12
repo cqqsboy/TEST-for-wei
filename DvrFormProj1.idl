@@ -1,7 +1,7 @@
 [
-  uuid(68D08E3C-41C4-4CDF-A7C0-0C010CB0E931), 
-  version(1.0), 
-  helpstring("DvrFormProj1 Library"), 
+  uuid(68D08E3C-41C4-4CDF-A7C0-0C010CB0E931),
+  version(1.0),
+  helpstring("DvrFormProj1 Library"),
   control
 ]
 library DvrFormProj1
@@ -11,10 +11,10 @@ library DvrFormProj1
   importlib("STDVCL40.DLL");
 
   [
-    uuid(8B1896D6-05FF-42F2-A160-6FF774C29247), 
-    version(1.0), 
-    helpstring("Dispatch interface for DvrForm Control"), 
-    dual, 
+    uuid(8B1896D6-05FF-42F2-A160-6FF774C29247),
+    version(1.0),
+    helpstring("Dispatch interface for DvrForm Control"),
+    dual,
     oleautomation
   ]
    interface IDvrForm: IDispatch
@@ -124,7 +124,11 @@ library DvrFormProj1
     [id(0x0000001F)]
     HRESULT _stdcall LockScreen( void );
     [id(0x00000020)]
-    int _stdcall IsCompany( void );
+    HRESULT _stdcall IsCompany([out] int * flag );
+    [id(0x00000021)]
+    HRESULT _stdcall YTRemote_CallPreset([in] long pos );
+    [id(0x00000022)]
+    HRESULT _stdcall YTRemote_SavePreset([in] long pos );
   };
 
   [
@@ -240,8 +244,5 @@ library DvrFormProj1
     [helpstring("mbMiddle")]
     mbMiddle = 2
   } TxMouseButton;
-
-  
-  typedef IFontDisp ** PPUserType1;
 
 }; 
